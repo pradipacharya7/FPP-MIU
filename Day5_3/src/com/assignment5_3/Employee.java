@@ -1,0 +1,83 @@
+package com.assignment5_3;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+
+
+public class Employee {
+	private String name;
+	private Date hireDate;
+	private ArrayList<Account> accounts=new ArrayList<Account>();
+//	accounts.add(new SavingsAccount());
+	
+	public ArrayList<Account> getAccounts()
+	{
+		return accounts;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public Employee(String name, int yearOfHire, 
+		int monthOfHire, int dayOfHire){
+		this.name = name;
+		GregorianCalendar cal = 
+		new GregorianCalendar(yearOfHire,monthOfHire-1,dayOfHire);
+		hireDate = cal.getTime();
+	}
+
+	public void createNewChecking(double startAmount) {
+		accounts.add(new CheckingAccount(this,startAmount));
+		
+	}
+	public void createNewSavings(double startAmount) {
+		accounts.add(new SavingsAccount(this,startAmount));		
+	}
+	public void createNewRetirement(double startAmount) {
+		accounts.add(new RetirementAccount(this,startAmount));		
+	}
+
+	public void deposit(AccountType acctType,double amt){
+		
+		for(Account a:accounts)
+		{
+			if (a.getAccountType()==acctType.toString()) 
+					{
+				a.makeDeposit(amt);
+				break;
+			}
+		}
+		 
+	}
+	public boolean withdraw(AccountType acctType, double amt)
+	{
+		for(Account a:accounts)
+		{
+			if(a.getAccountType()==acctType.toString())
+			{
+				a.makeWithdrawal(amt);
+				return true;
+			}
+			
+		}
+		return false;
+	}
+
+	public String getFormattedAcctInfo() {
+		
+		StringBuffer sb=new StringBuffer();
+	for(Account a:accounts)
+	{	sb.append(this.getName());
+		sb.append(a.toString());
+	}
+	return sb.toString();
+		
+//		String template  = "ACCOUNT INFO FOR %s\n\n%s%s%s";		
+//		return String.format(template,this.getName(), (this.checkingAcct==null?"":this.checkingAcct),(this.savingsAcct==null?"":this.savingsAcct) ,(this.retirementAcct==null?"":this.retirementAcct) );
+		
+	}
+
+
+}
