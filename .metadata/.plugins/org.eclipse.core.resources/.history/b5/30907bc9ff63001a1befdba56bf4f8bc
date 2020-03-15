@@ -1,0 +1,64 @@
+package AddAndRemoveNode;
+
+
+
+public class MainLinkedList {
+	
+	static Node header=new Node(null,null,null);
+	public static void main(String[] args)
+	{
+		addAtFirst("Guragain");
+		addAtFirst("hari");
+		addAtFirst("ram");
+		addAtFirst("gita");
+		addAtLast("Rama");
+		display();
+	}
+	private static void display() {
+		Node temp=header.next;
+		while(temp!=null)
+		{
+			System.out.printf("%s%s",temp.data,"->");
+			temp=temp.next;
+			
+			
+		}		
+	}
+	private static void addAtFirst(String string) {
+		
+		Node new_node=new Node(string);
+		new_node.next=header.next;
+		new_node.previous=header;
+		header.next=new_node;
+		
+		
+	}
+	public static void addAtLast(String string) 
+	{
+		Node new_node=new Node(string);
+		
+		Node temp=header.next;
+		while(temp!=null)
+		{
+			temp=temp.next;
+		}
+		temp.next=new_node;
+		new_node.previous=temp;
+		
+	}
+	
+	public  static int getSize()
+	{
+		Node temp=header.next;
+		int count=1;
+		while(temp!=null)
+		{
+			temp=temp.next;
+			count++;
+		}
+		return count;
+	}
+	
+	
+
+}

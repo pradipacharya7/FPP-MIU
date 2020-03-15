@@ -1,0 +1,39 @@
+package queueAssignmnet;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Scanner;
+
+public class UserInput {
+	static Scanner sc=new Scanner(System.in);
+	static Deque<Character> queue=new ArrayDeque<Character>();	
+	public static void checkLine()
+	{
+		System.out.println("Enter any line");
+		String line=sc.next();
+		char c;
+		for(int i=0;i<line.length();i++)
+		{
+		 c=line.charAt(i);
+		 queue.add(c);
+		}
+		String s1="";
+		String s2="";
+		int size=queue.size();
+	
+		System.out.println(queue);
+		
+//		System.out.println(s1+"\n");
+//		System.out.println(s1);
+		if(s1.equals(s2)) System.out.println("S:Left and right string are equal.");
+		if(s1.length()>s2.length()) System.out.println("L:Left string is greater than right string.");
+		if(s2.length()==0) System.out.println("N:No colon");
+		return;
+		
+	}
+	public static void main(String[] args)
+	{
+		checkLine();
+	}
+
+}

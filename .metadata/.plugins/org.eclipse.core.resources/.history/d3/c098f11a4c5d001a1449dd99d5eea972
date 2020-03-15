@@ -1,0 +1,12 @@
+package com.assignment5_3;
+
+public class CheckingAccount extends Account{
+CheckingAccount(Employee emp,double startAmount) {
+		super(emp,startAmount);
+		
+	}
+
+public String getAccountType() {
+	return "CHECKING";
+}
+}

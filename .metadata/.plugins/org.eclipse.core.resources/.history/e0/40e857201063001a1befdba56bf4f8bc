@@ -1,0 +1,77 @@
+package linkedlistAssignment;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class UsingLinkedLsit {
+	static Scanner sc = new Scanner(System.in);
+	static List<Character> A = new LinkedList<Character>();
+	static List<Character> B = new LinkedList<Character>();
+	static List<Character> C = new LinkedList<Character>();
+
+	public static void main(String[] args) {
+		String c;
+
+		do {
+			System.out.println("Enter Your choice \n1.R for read\n2.C for concatinate \n3. W to rite\n4.Q for quit");
+			c = sc.next();
+
+			switch (c.toUpperCase()) {
+			case "R":
+
+				System.out.println("Choose your list \nA or B or C");
+				String l = sc.next();
+				List<Character> list = getList(l);
+				System.out.println("Enter the text");
+				String text = sc.next();
+				populate(list, text);
+				break;
+
+			case "C":
+				System.out.println("Enter target");
+				String target = sc.nextLine();
+				System.out.println("Enter string name");
+				String string = sc.nextLine();
+				List<Character> getTarget = getList(target);
+				List<Character> getString = getList(string);
+				getTarget.addAll(getString);
+				break;
+
+			case "W":
+				System.out.println("Enter the list you want to write");
+				String listName = sc.next();
+				List<Character> getStringToPrint = getList(listName);
+				for (Character ch : getStringToPrint) {
+					System.out.printf("%s", ch);
+				}
+				break;
+
+			default:
+				System.out.println("You enter wrong choice");
+				break;
+
+			}
+		} while (c.equals("q") || c.equals("Q"));
+	}
+
+	private static void populate(List<Character> list, String text) {
+		for (int i = 0; i < text.length(); i++) {
+			A.add(text.charAt(i));
+		}
+
+	}
+
+	private static List<Character> getList(String target) {
+		switch (target.toUpperCase()) {
+		case "A":
+			return A;
+		case "B":
+			return B;
+		case "C":
+			return C;
+		}
+		return null;
+	}
+
+}

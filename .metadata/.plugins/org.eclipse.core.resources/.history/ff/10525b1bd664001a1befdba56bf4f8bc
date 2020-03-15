@@ -1,0 +1,41 @@
+package stack;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Delimeters {
+	static String exp="(a + b[(x+y)] + 10";
+	static Deque<Character> stack=new ArrayDeque<Character>();
+	public static void main(String[] args)
+	{
+		
+		
+		boolean m=method();
+		if(m==true) System.out.println("All delimeters matched");
+	}
+public static boolean method()
+{
+	char c;
+	for(int i=0;i<exp.length();i++)
+	{
+	c=exp.charAt(i);
+	if(c=='(' || c=='[' )
+	{
+		stack.push(c);
+	}
+	else if(c==')') 
+	{
+		if(stack.peek()==c) stack.pop();
+	}
+	else if(c==']')
+	{
+		if(stack.peek()==c) stack.pop();
+	}
+	
+		
+	}
+	
+	return false;
+}
+
+}

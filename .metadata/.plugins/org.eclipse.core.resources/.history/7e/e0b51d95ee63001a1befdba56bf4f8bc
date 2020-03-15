@@ -1,0 +1,19 @@
+package AddAndRemoveNode;
+
+public class Node {
+	String data;
+	Node next;
+	Node previous;
+	Node(Node previous,Node next, String data)
+	{
+		this.previous=null;
+		this.next=null;
+		this.data=null;
+	}
+	Node(String data)
+	{
+		this.previous=null;
+		this.next=null;
+		this.data=data;
+	}
+}

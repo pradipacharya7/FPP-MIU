@@ -1,0 +1,32 @@
+
+package stack;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Scanner;
+
+
+public class Stack {
+	static Scanner sc=new Scanner(System.in);
+	
+	public static void main(String[] args)
+	{
+		Deque<Integer> stack=new ArrayDeque<Integer>();
+		boolean conti=true;
+		while(conti)
+		{
+			System.out.println("Enter any integer");
+			int num=sc.nextInt();
+			if(num==-1)
+				break;
+			stack.push(num);
+		}
+		System.out.println("Reverse is:");
+		while(conti)
+		{
+		System.out.println(stack.pop());
+		
+		}
+	}
+
+}

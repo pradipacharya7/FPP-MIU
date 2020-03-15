@@ -1,0 +1,15 @@
+package stack;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Delimeters {
+	static String exp="(a + b[(x+y)] + 10";
+	public static void main(String[] args)
+	{
+		Deque<Character> stack=new ArrayDeque<Character>();
+		char c;
+		boolean m=method();
+	}
+
+}

@@ -1,0 +1,19 @@
+package linkedlist;
+
+public class Node {
+		String next;
+		String previous;
+		String data;
+		Node(String next,String previous,String data)
+		{
+			this.data=data;
+			this.next=this.previous=null;
+		}
+		Node(String data)
+		{
+			this.data=data;
+			this.next=this.previous=null;
+			
+		}
+
+}

@@ -1,0 +1,78 @@
+package DoublyLinkedList;
+
+public class DoublyLinkedList {
+	
+	Node header;
+	DoublyLinkedList(){
+		header = new Node(null,null,null);
+		
+	}
+	//adds to the end of the list
+	public void addLast(String item){
+		
+		Node new_node=new Node(item);
+		Node temp=header;
+		for(int i=0;i<getSize()-1;i++)
+		{
+			temp=temp.next;
+		}
+		temp.next=new_node;
+		new_node.previous=temp;
+		new_node.next=temp.next;
+		
+	}
+	public int getSize()
+	{
+		Node temp=header.next;
+		int size=0;
+		while(temp!=null)
+		{
+			size++;
+		}
+		return size;
+	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		toString(sb, header);
+		return sb.toString();
+		
+	}
+	private void toString(StringBuilder sb, Node n) {
+		if(n==null) return;
+		if(n.value != null) sb.append(" " + n.value);
+		toString(sb, n.next);
+	}
+	
+	class Node {
+		String value;
+		Node next;
+		Node previous;
+		
+		Node(String val)
+		{
+			this.next=null;
+			this.previous=null;
+			this.value=val;
+		}
+		Node(Node next,Node previous,String value)
+		{
+			this.next=null;
+			this.previous=null;
+			this.value=value;
+		}
+		public String toString() {
+			return value == null ? "null" : value;
+		}
+	}
+
+	public static void main(String[] args){
+		DoublyLinkedList list = new DoublyLinkedList();
+		list.addLast("Bob");
+		list.addLast("Harry");
+		list.addLast("Steve");
+		System.out.println(list);
+	}
+}

@@ -1,0 +1,47 @@
+package stack;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Delimeters {
+	static String exp="(a +)";
+	static Deque<Character> stack=new ArrayDeque<Character>();
+	public static void main(String[] args)
+	{
+		System.out.println("Main");
+		
+		boolean m=method();
+		if(m==true) System.out.println("All delimeters matched");
+		else System.out.println("All delimeters not matched");
+	}
+public static boolean method()
+{
+	System.out.println("inside method");
+
+	char c;
+	for(int i=0;i<exp.length();i++)
+	{
+	c=exp.charAt(i);
+	if(c=='(' || c=='[' )
+	{
+		stack.push(c);
+		System.out.println(stack.peek());
+	}
+	if(c==')') 
+	{
+		if(stack.peek()=='(') stack.pop();
+	}
+	else if(c==']')
+	{
+		if(stack.peek()==']') stack.pop();
+	}
+	
+		
+	}
+	if(stack.size()!=0) return false;
+	System.out.println("hrere");
+	return true;
+	
+}
+
+}

@@ -1,0 +1,33 @@
+package AddAndRemoveNode;
+
+import linkedlist.Node;
+
+public class MainLinkedList {
+	
+	static Node header=new Node(null,null,null);
+	public static void main(String[] args)
+	{
+		addAtFirst("Guragain");
+	}
+	private static void addAtFirst(String string) {
+		
+		Node new_node=new Node(string);
+		new_node.next=header.next;
+		new_node.previous=header;
+		header.next=new_node;
+		
+		
+	}
+	public static void display()  //Display all of LINKED LIST
+	{
+		Node temp=head.next;
+		while(temp!=null)
+		{
+			System.out.printf("%s%s",temp.data,"->");
+			temp=temp.next;
+			
+			
+		}
+	}
+
+}
