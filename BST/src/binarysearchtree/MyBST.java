@@ -15,29 +15,28 @@ public class MyBST {
 	            System.out.println( "Empty tree" );
 	        else
 	        {
-	        	int num_leaves= 	countLeaves(root);
-	    		  System.out.println("Nomber of leaves are:"+num_leaves);
-	    		   int num_node=countNodes(root);
-	     		  System.out.println("Nomber of nodes are:"+ num_node);
+	        	
 	            printTree( root );
 	    		System.out.println("\n");
 
-	        postorder(root);
-    		System.out.println("\n");
-
-	        preorder(root);
-    		System.out.println("\n");
-    		  
-
-
 	        }
 	    }
-	    private void printTree( BinaryNode t ){
+	    
+	  //inorder 
+	    private void printTree( BinaryNode t ){ 
 	        if( t != null ){
 	            printTree( t.left );
 	            System.out.println( t.element );
 	            printTree( t.right );
 	        } // An INORDER Traversal
+	    }
+	    public void preorder() { 
+	        if( root == null )
+	            System.out.println( "Empty tree" );
+	        else
+	        {
+	            preorder( root );
+	        }
 	    }
 	    public void preorder(BinaryNode root)
 	    {
@@ -50,15 +49,32 @@ public class MyBST {
 	    	}
 	    	
 	    }
+	    public void postorder() {
+	        if( root == null )
+	            System.out.println( "Empty tree" );
+	        else
+	        {
+	        	postorder( root );
+	        }
+	    }
 	    public void postorder(BinaryNode root)
 	    {
 	    	if(root!=null)
 	    	{
 	    		
-	    		preorder(root.left);
-	    		preorder(root.right);
+	    		postorder(root.left);
+	    		postorder(root.right);
 	    		System.out.println(root.element);
 	    	}
+	    }
+	    public void countNodes() {
+	        if( root == null )
+	            System.out.println( "Empty tree" );
+	        else
+	        {
+	        	int countNOdes=countNodes( root );
+	        	System.out.println("Number of nodes are:"+countNOdes);
+	        }
 	    }
 	    public int countNodes(BinaryNode root)
 		 {
@@ -67,6 +83,16 @@ public class MyBST {
 			return(1+countNodes(root.left)+countNodes(root.right));
 				 
 		 }
+	    public void countLeaves() {
+	        if( root == null )
+	            System.out.println( "Empty tree" );
+	        else
+	        {
+	        	int countLeaves=countLeaves( root );
+	        	System.out.println("Number of nodes are:"+countLeaves);
+
+	        }
+	    }
 	    public int countLeaves(BinaryNode root)
 		 {
 			 if(root==null) return 0;

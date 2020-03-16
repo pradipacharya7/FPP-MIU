@@ -10,7 +10,18 @@ public class MainClass {
 	   	b.insert(10);
 	   	b.insert(50);
 	   	b.insert(5);
-	   	b.printTree();
+	   	b.printTree();	   	
+	   	System.out.println();
+
+	   	b.preorder();
+	   	System.out.println();
+	   	b.postorder();
+	   	System.out.println();
+
+	   	b.countNodes();
+	   	System.out.println();
+
+	   	b.countLeaves();
 	
 	  } 
 	}
